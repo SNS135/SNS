@@ -68,11 +68,10 @@ const Navbar = ({ activeTab, onTabChange }: { activeTab: Tab; onTabChange: (t: T
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id as Tab)}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-              activeTab === tab.id
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${activeTab === tab.id
                 ? 'bg-indigo-600 text-white shadow-md'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
-            }`}
+              }`}
           >
             {tab.label}
           </button>
@@ -227,7 +226,7 @@ const ArchitectureView = () => (
 const DatabaseView = () => (
   <div className="max-w-4xl mx-auto py-10 px-4">
     <h2 className="text-3xl font-bold mb-8 text-white">Database Schema (PostgreSQL)</h2>
-    
+
     <div className="grid gap-8">
       <div className="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden">
         <div className="bg-slate-900/50 p-3 border-b border-slate-700 flex justify-between items-center">
@@ -276,7 +275,7 @@ const DatabaseView = () => (
             <span>content</span>
             <span className="text-indigo-400">TEXT</span>
           </div>
-           <div className="flex justify-between text-slate-300">
+          <div className="flex justify-between text-slate-300">
             <span>created_at</span>
             <span className="text-indigo-400">TIMESTAMP (Indexed)</span>
           </div>
@@ -290,10 +289,10 @@ const InfraView = () => (
   <div className="max-w-4xl mx-auto py-10 px-4">
     <h2 className="text-3xl font-bold mb-8 text-white">Infrastructure Strategy</h2>
     <div className="space-y-6">
-        <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
-            <h3 className="text-xl font-bold text-blue-400 mb-4">Local Development (Docker Compose)</h3>
-            <pre className="bg-slate-950 p-4 rounded-lg overflow-x-auto text-xs font-mono text-slate-300">
-{`version: '3.8'
+      <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h3 className="text-xl font-bold text-blue-400 mb-4">Local Development (Docker Compose)</h3>
+        <pre className="bg-slate-950 p-4 rounded-lg overflow-x-auto text-xs font-mono text-slate-300">
+          {`version: '3.8'
 services:
   db:
     image: postgres:15-alpine
@@ -321,18 +320,18 @@ services:
       - "3000:3000"
     environment:
       NEXT_PUBLIC_API_URL: http://localhost:8080`}
-            </pre>
-        </div>
+        </pre>
+      </div>
 
-        <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
-            <h3 className="text-xl font-bold text-blue-400 mb-4">Production (Kubernetes)</h3>
-            <ul className="list-disc list-inside space-y-2 text-slate-300">
-                <li><strong className="text-white">Ingress Controller:</strong> Nginx - Routes /api/* to Go Backend and /* to Next.js Frontend.</li>
-                <li><strong className="text-white">Scaling:</strong> Horizontal Pod Autoscaler (HPA) based on CPU/Memory.</li>
-                <li><strong className="text-white">Secrets:</strong> K8s Secrets for Database credentials.</li>
-                <li><strong className="text-white">CI/CD:</strong> GitHub Actions building Docker images -> Push to Registry -> Helm Upgrade.</li>
-            </ul>
-        </div>
+      <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h3 className="text-xl font-bold text-blue-400 mb-4">Production (Kubernetes)</h3>
+        <ul className="list-disc list-inside space-y-2 text-slate-300">
+          <li><strong className="text-white">Ingress Controller:</strong> Nginx - Routes /api/* to Go Backend and /* to Next.js Frontend.</li>
+          <li><strong className="text-white">Scaling:</strong> Horizontal Pod Autoscaler (HPA) based on CPU/Memory.</li>
+          <li><strong className="text-white">Secrets:</strong> K8s Secrets for Database credentials.</li>
+          <li><strong className="text-white">CI/CD:</strong> GitHub Actions building Docker images &gt; Push to Registry &gt; Helm Upgrade.</li>
+        </ul>
+      </div>
     </div>
   </div>
 );
