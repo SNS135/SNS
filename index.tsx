@@ -69,8 +69,8 @@ const Navbar = ({ activeTab, onTabChange }: { activeTab: Tab; onTabChange: (t: T
             key={tab.id}
             onClick={() => onTabChange(tab.id as Tab)}
             className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${activeTab === tab.id
-                ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+              ? 'bg-indigo-600 text-white shadow-md'
+              : 'text-slate-400 hover:text-white hover:bg-slate-800'
               }`}
           >
             {tab.label}
@@ -269,7 +269,7 @@ const DatabaseView = () => (
           </div>
           <div className="flex justify-between text-slate-300 border-b border-slate-700/50 pb-2">
             <span>user_id</span>
-            <span className="text-indigo-400">UUID (FK -> users.id)</span>
+            <span className="text-indigo-400">UUID (FK → users.id)</span>
           </div>
           <div className="flex justify-between text-slate-300 border-b border-slate-700/50 pb-2">
             <span>content</span>
